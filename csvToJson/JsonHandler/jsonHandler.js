@@ -55,10 +55,10 @@ class JsonHandler {
         if (fs.existsSync(path.resolve(__dirname, backupFileLocation), "utf8")){
             // if the file exists, then we read the file and set the json object to the file contents
             this.jsonObject = JSON.parse(fs.readFileSync(path.resolve(__dirname, backupFileLocation), "utf8"));
+            isBackupEnabled = true;
         }
         else{
             this.jsonObject = JSON.parse(fs.readFileSync(path.resolve(__dirname, this.jsonFileLocation), "utf8"));
-            isBackupEnabled = true;
         }
     }
 
@@ -160,7 +160,7 @@ class JsonHandler {
         return jsonObj[masterKey][key];
     }
 
-    // create an overloaded function for getjsonvaluebykey that take in a dict of keys instead of just one key
+    // overloaded function for getjsonvaluebykey that take in a dict of keys instead of just one key
     getJsonValuesByKeys(jsonObject, masterKey, keys){
         // first parse the json object
         const jsonObj = JSON.parse(jsonObject);
