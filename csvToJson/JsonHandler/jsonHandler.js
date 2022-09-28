@@ -1,5 +1,47 @@
 const backupFileLocation = '../BACKUP/BackupJsonFile/BACKUP.json';
 var isBackupEnabled = false;
+// I'm creating a global dict that will have generic values that can be used when calling the class
+var globalList = [
+        "StartDate",
+        "EndDate",
+        "Status",
+        "IPAddress",
+        "Progress",
+        "Duration (in seconds)",
+        "Finished",
+        "RecordedDate",
+        "ResponseId",
+        "RecipientLastName",
+        "RecipientFirstName",
+        "RecipientEmail",
+        "ExternalReference",
+        "LocationLatitude",
+        "LocationLongitude",
+        "DistributionChannel",
+        "UserLanguage",
+        "Q1",
+        "Q7",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q6_1",
+        "Q6_2",
+        "Q6_3",
+        "Q8",
+        "Q9",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q17",
+        "Q18",
+        "Q14",
+        "Q20",
+        "Q21",
+        "Q15",
+        "Q16",
+];
 
 class JsonHandler {
     constructor(jsonFileLocation){
@@ -8,6 +50,7 @@ class JsonHandler {
         // first we check if the back up json file excists in the backup folder
         // if it does not, then we initialize the json file using the json file location
         this.jsonFileLocation = jsonFileLocation;
+        this.valuesList = globalList;
 
         if (fs.existsSync(path.resolve(__dirname, backupFileLocation), "utf8")){
             // if the file exists, then we read the file and set the json object to the file contents
@@ -92,10 +135,72 @@ class JsonHandler {
         }
         this.writeJsonObjectToFile(newJsonArray);
     }
+
+    // given a specific key for the json object, this function will return the entire dict for that key
+    getJsonObjectByKey(key){
+        // first we need to loop through the json object
+        for (let i = 0; i < this.jsonObject.length; i++){
+            // if the key is found, then we return the entire dict
+            if (Object.keys(this.jsonObject[i])[0] === key){
+                return JSON.stringify(this.jsonObject[i]);
+            }
+        }
+        // if the key is not found, then we return null
+        return null;
+    }
+
+    // a method to take in a json object and search for a specific key and return the value for that key
+    getJsonValueByKey(jsonObject, masterKey, key){
+        // first parse the json object
+        const jsonObj = JSON.parse(jsonObject);
+        // then find the value with the given key
+        if (jsonObj[masterKey][key] === ""){
+            jsonObj[masterKey][key] = "N/A";
+        }
+        return jsonObj[masterKey][key];
+    }
+
+    // create an overloaded function for getjsonvaluebykey that take in a dict of keys instead of just one key
+    getJsonValuesByKeys(jsonObject, masterKey, keys){
+        // first parse the json object
+        const jsonObj = JSON.parse(jsonObject);
+        // then find the value with the given key
+        const values = [];
+        for (let i = 0; i < keys.length; i++){
+            if (jsonObj[masterKey][keys[i]] === ""){
+                jsonObj[masterKey][keys[i]] = "N/A";
+            }
+            values.push(jsonObj[masterKey][keys[i]]);
+        }
+        return values;
+    }
+
+    getJsonSpecificValueAsString(masterKey, key, dictionary = false){
+        const jsonKey = this.getJsonObjectByKey(masterKey);
+        if (dictionary === false){
+            return this.getJsonValueByKey(jsonKey, masterKey, key);
+        }
+        else{
+            return this.getJsonValuesByKeys(jsonKey, masterKey, this.getGlobalListOfKeys());
+        }
+    }
+
+    // function to get the global dict
+    getGlobalListOfKeys(){
+        return this.valuesList;
+    }
 }
 
 exports = module.exports = JsonHandler;
 
 // test the json handler
-// const jsonHandler = new JsonHandler("../jsonStorage/Alumni.json");
-// jsonHandler.seperateJsonObjectByKeys();
+const jsonHandler = new JsonHandler("../jsonStorage/Alumni.json");
+// const jsonObject = jsonHandler.getJsonObjectAsString();
+// // console.log(jsonObject);
+// const jsonObjectByKey = jsonHandler.getJsonObjectByKey("Business 1");
+// // console.log(jsonObjectByKey);
+// const jsonValueByKey = jsonHandler.getJsonValueByKey(jsonObjectByKey, "Business 1", "StartDate");
+// console.log(jsonValueByKey);
+
+const jsonSpecificValueAsString = jsonHandler.getJsonSpecificValueAsString("Business 1", "RecipientLastName");
+console.log(jsonSpecificValueAsString);
