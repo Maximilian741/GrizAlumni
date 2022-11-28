@@ -16,7 +16,6 @@ body {
 }
 
 h1,
-h3,
 h4,
 h5,
 h6 {
@@ -24,6 +23,13 @@ h6 {
 	letter-spacing: 0.4px;
 	font-family: "Raleway", Sans-serif;
 	color: #232323;
+}
+h3 {
+    padding-top: 20px;
+    font-weight: 200;
+    letter-spacing: 0.4px;
+    font-family: "Raleway", Sans-serif;
+    color: #232323;
 }
 
 /*

@@ -14,12 +14,20 @@ Therefore the cost for this plan is as follows:
 
 In order to proceed with DreamHost we have opted to create a seperate email address for you.  This will be a microsoft outlook account.
 Thus:
-    email: 
-    password:
+    Email: 
+    Password:
 
 We will also route users from the contact us section of the site to this email address.  For the sake of consistency, the primary email address for the Alumni Association will still be displayed on the footer of the page.
 
+Moving forward with DreamHost we will be utilizing the above email to create an account through this service.  You will use this account to perform changes to your hosting plan or to upgrade to a version that utilizes WordPress as the main function.  The log in information is as follows:
+                                    Username:
+                                    Password:
+
+
 Domain Name: GrizAlumni.com
+We decided to go with '.com' as this was offered through DreamHost.
+
+
 
 index.html
 This is where the main content of the webpage is displayed.
