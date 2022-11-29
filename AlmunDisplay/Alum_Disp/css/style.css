@@ -17,8 +17,8 @@ body {
 
 h1,
 h4,
-h5,
-h6 {
+h5
+{
 	font-weight: 200;
 	letter-spacing: 0.4px;
 	font-family: "Raleway", Sans-serif;
@@ -31,11 +31,25 @@ h3 {
     font-family: "Raleway", Sans-serif;
     color: #232323;
 }
+h6{
+    padding-top: 70px;
+    font-size: 90px;
+    font-weight: 200;
+    letter-spacing: 0.4px;
+    font-family: "Optima";
+    color: #232323;
+}
 
 /*
 HEADER FOR THE TITLES IN EACH SECTION OF THE MAIN PAGE... GRIZ BUSINESSES, OUR FAMILY, CONTACT US.. ETC..
 */
 h2{
+    padding-top: 5px;
+    font-size: 35px;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    font-family: "Optima";
+    color: #232323;
 
 }
 
@@ -154,7 +168,7 @@ NAVIGATION
 		font-size: 2em;
 		-webkit-transition:all .3s;
 		-moz-transition:all .3s;
-		transition:all .3s
+		transition:all .3s;
         padding: 0px;
 	}
 	.navbar-default .navbar-nav>.active>a {
@@ -194,6 +208,7 @@ NAVIGATION
 
 .mz-module .section-title {
     padding: 40px 0;
+    border-radius: 15px;
 }
 
 /*--------------------
@@ -202,34 +217,41 @@ NAVIGATION
 
 .mz-about-container {
     padding: 0px;
+    border-radius: 15px;
 }
 
 .mz-module-about {
 	padding: 0px;
+    border-radius: 15px;
 }
 
 .mz-about-default {
     background-color: #252525;
+    border-radius: 15px;
 }
 
 .mz-about-dark {
     background-color: #2B2B2B;
+    border-radius: 15px;
 }
 
 .mz-module-about h3 {
 font-weight: 700;
     font-size: 13px;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: #882323;
     letter-spacing: 2px;
     margin-bottom: 30px;
+    border-radius: 15px;
+    border-radius: 15px;
     }
 
 .mz-module-about p {
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 27px;
-	color: #9C9C9C;
+	color: #640505;
+    border-radius: 50px;
 }
 
 .ot-circle {
@@ -400,6 +422,7 @@ INTRO TEXT
 
 .team-item h3 {
 font-size: 25px;
+padding-top: 35px;
 color: #FFFFFF;
     font-weight: 300;
     margin: 30px 0 20px;
