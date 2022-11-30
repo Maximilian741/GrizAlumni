@@ -8,25 +8,54 @@
 //This function is used to make the Contact us section on the index.html page work.
 //It is called when the submit button is clicked.  Furthermore, the name, email, and message fields must be filled out.
 //It then sends the information to the specified email address.
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
 function sendEmail() {
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     var message = document.getElementById("message").value;
     var body = "Name: " + name + "From: " + email + "Message: " + message;
-    if (name == "" || email == "" || message == "") {
-        alert("Please Fill All Fields");
-    }
-    else {
-        Email.send({
-            Host: "smtp.gmail.com",
-            Username: "
-            Password: "
-            To: "
-            From: "
-            Subject: "New message from contact form",
+    
+    email.send({
+            SecureToken : "6268cee6-cdd6-488e-bbfa-f07b9661e4b9",
+            To: 'GrizAlumniRock@outlook.com',
+            From: email,
+            Subject: "New Contact Form Submission",
             Body: body
         }).then(
-            message => alert("mail sent successfully")
+            message => alert(message)
         );
+}
+
+
+//This function is used to randomize the json received from the csv to json converter.
+//It is called when the page is loaded.
+//The purpose is to randomly display 3 alumni on the page.
+//The information displayed is the name, Business name, and the short description.
+function randomize() {
+    var json = JSON.parse(data);
+    var random = [];
+    var i = 0;
+    //This while loop is used to randomly select 3 alumni from the json file.
+    while (i < 3) {
+        var r = Math.floor(Math.random() * json.length);
+        if (random.includes(r)) {
+            continue;
+        }
+        else {
+            random.push(r);
+            i++;
+        }
+    }
+    //This for loop is used to display the information of the 3 alumni.
+    var table = document.getElementById("table");
+    for (var i = 0; i < random.length; i++) {
+        var row = table.insertRow(i + 1);
+        var name = row.insertCell(0);
+        var business = row.insertCell(1);
+        var description = row.insertCell(2);
+        name.innerHTML = json[random[i]].Name;
+        business.innerHTML = json[random[i]].Business;
+        description.innerHTML = json[random[i]].Description;
     }
 }

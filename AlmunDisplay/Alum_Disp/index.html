@@ -17,6 +17,8 @@
 	</head>
 	<body id="page-top">
 		<!-- NAVIGATION -->
+		<script src="https://smtpjs.com/v3/smtp.js"></script>
+		
 		
 		<nav class="navbar navbar-default">
 			<div class="container">
@@ -246,9 +248,11 @@
 
 				<!--SEND MESSAGE SECTION.  THIS PORTION IS CURRENTLY IN THE PARKING LOT, I WAS GOING TO ROUTE THIS TRAFFIC TO THE UNIVERSITY OF MONTANA 
 					ALUMNI EMAIL ADDRESS-->
+
+	
 				<div class="row">
 					<div class="col-lg-12 text-center">
-						<form name="sentMessage" id="contactForm" novalidate="">
+						<form onsubmit="sendEmail(); reset(); return false;" >
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
@@ -392,5 +396,8 @@
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/SmoothScroll.js"></script>
 		<script src="js/theme-scripts.js"></script>
+		<script src="https://smtpjs.com/v3/smtp.js"></script>
+		<script src = "js/index.js"> </script>
+		
 	</body>
 </html>
