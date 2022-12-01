@@ -32,7 +32,7 @@ h3 {
     color: #232323;
 }
 h6{
-    padding-top: 70px;
+    padding-top: 1px;
     font-size: 90px;
     font-weight: 200;
     letter-spacing: 0.4px;
@@ -179,8 +179,8 @@ NAVIGATION
 		padding: 10px 0
 	}
     .navbar-nav>li>a {
-        padding-top: 15px;
-        padding-bottom: 4px;
+        padding-top: 0px;
+        padding-bottom: 0px;
     }
 }
 
