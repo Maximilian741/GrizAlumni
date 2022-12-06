@@ -33,20 +33,25 @@ function sendEmail() {
 //The purpose is to randomly display 3 alumni on the page.
 //The information displayed is the name, Business name, and the short description.
 function randomize() {
-    var json = JSON.parse(data);
-    var random = [];
-    var i = 0;
-    //This while loop is used to randomly select 3 alumni from the json file.
-    while (i < 3) {
-        var r = Math.floor(Math.random() * json.length);
-        if (random.includes(r)) {
-            continue;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            var rand1 = Math.floor(Math.random() * myObj.length);
+            var rand2 = Math.floor(Math.random() * myObj.length);
+            var rand3 = Math.floor(Math.random() * myObj.length);
+            document.getElementById("name1").innerHTML = myObj[rand1].Name;
+            document.getElementById("name2").innerHTML = myObj[rand2].Name;
+            document.getElementById("name3").innerHTML = myObj[rand3].Name;
+            document.getElementById("business1").innerHTML = myObj[rand1].Business;
+            document.getElementById("business2").innerHTML = myObj[rand2].Business;
+            document.getElementById("business3").innerHTML = myObj[rand3].Business;
+            document.getElementById("description1").innerHTML = myObj[rand1].Description;
+            document.getElementById("description2").innerHTML = myObj[rand2].Description;
+            document.getElementById("description3").innerHTML = myObj[rand3].Description;
         }
-        else {
-            random.push(r);
-            i++;
-        }
-    }
+    };
+
     //This for loop is used to display the information of the 3 alumni.
     var table = document.getElementById("table");
     for (var i = 0; i < random.length; i++) {
@@ -59,3 +64,30 @@ function randomize() {
         description.innerHTML = json[random[i]].Description;
     }
 }
+
+
+//This function is used to display the information of the alumni from the json file and populate each 
+//of the four pages with the information.
+//It is called when the page is loaded.
+//The information displayed is the name, Business name, and the short description, as well as the link to the website of the alumni from the json file and populate each of the four pages with the information.
+function display() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            var table = document.getElementById("table");
+            for (var i = 0; i < myObj.length; i++) {
+                var row = table.insertRow(i + 1);
+                var name = row.insertCell(0);
+                var business = row.insertCell(1);
+                var description = row.insertCell(2);
+                name.innerHTML = myObj[i].Name;
+                business.innerHTML = myObj[i].Business;
+                description.innerHTML = myObj[i].Description;
+            }
+        }
+    };
+    xmlhttp.open("GET", "alumni.json", true);
+    xmlhttp.send();
+}
+
