@@ -36,4 +36,5 @@ style.css
 This is where the styling for the content in the index.html file is performed.
 
 csvToJson
-This is the folder Riley created in order to convert the Qualtrix survey into 
+I have been using this to convert the csv generated from the qualtrics survey into the json.
+https://csvjson.com/csv2json
