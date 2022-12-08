@@ -80,9 +80,50 @@ async function randomizeV2() {
         teamposition.className = "team-position";
         teamposition.innerHTML = returnarr2[i]["Q1"];
 
-        // create a p
+        //This needs to be a popup modal that displays all the information entered by thebusiness
+        // create a popup link modal
+        var poplink = document.createElement("a");
         var p = document.createElement("p");
-        p.innerHTML = "WE NEED A POPUP LINK HERE";
+        poplink.href = "#";
+        poplink.setAttribute("data-toggle", "modal");
+        poplink.setAttribute("data-target", "#myModal");
+        poplink.innerHTML = "More Info";
+        p.appendChild(poplink);
+        
+        // create a modal
+        var modal = document.createElement("div");
+        modal.className = "modal fade";
+        modal.id = "myModal";
+        modal.setAttribute("role", "dialog");
+        modal.setAttribute("aria-labelledby", "myModalLabel");
+        modal.setAttribute("aria-hidden", "true");
+        modal.setAttribute("tabindex", "-1");
+
+        // create a modal dialog
+        var modalDialog = document.createElement("div");
+        modalDialog.className = "modal-dialog";
+
+        // create a modal content
+        var modalContent = document.createElement("div");
+        modalContent.className = "modal-content";
+
+        // create a modal header
+        var modalHeader = document.createElement("div");
+        modalHeader.className = "modal-header";
+
+        // create a modal body
+        var modalBody = document.createElement("div");
+        modalBody.className = "modal-body";
+
+        // create a modal footer
+        var modalFooter = document.createElement("div");
+        modalFooter.className = "modal-footer";
+
+        // create a close button
+        var closebutton = document.createElement("button");
+        closebutton.className = "btn btn-default";
+        closebutton.setAttribute("data-dismiss", "modal");
+        closebutton.innerHTML = "Close";
 
         // create an a
         var a = document.createElement("a");
@@ -94,11 +135,22 @@ async function randomizeV2() {
 
         teamtext.appendChild(h3);
         teamtext.appendChild(teamposition);
-        teamtext.appendChild(p);
+        //teamtext.appendChild(p);
         teamtext.appendChild(a);
 
         teamitem.appendChild(teamimage);
         teamitem.appendChild(teamtext);
+        teamitem.appendChild(p);
+        p.appendChild(modal);
+        modal.appendChild(modalDialog);
+        modalDialog.appendChild(modalContent);
+        modalContent.appendChild(modalHeader);
+        modalContent.appendChild(modalBody);
+        modalContent.appendChild(modalFooter);
+        modalFooter.appendChild(closebutton);
+
+        
+     
 
         div.appendChild(teamitem);
 
