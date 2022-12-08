@@ -8,8 +8,7 @@
 //This function is used to make the Contact us section on the index.html page work.
 //It is called when the submit button is clicked.  Furthermore, the name, email, and message fields must be filled out.
 //It then sends the information to the specified email address.
-<script src="https://smtpjs.com/v3/smtp.js">
-</script>
+{/* <script src="https://smtpjs.com/v3/smtp.js"></script> */}
 function sendEmail() {
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
@@ -65,6 +64,54 @@ function randomize() {
     }
 }
 
+async function randomizeV2() {
+    // this is a second attempt at the randomize function
+    const response = await fetch('https://raw.githubusercontent.com/Rileyj-m/TESTALUM.io/master/AlmunDisplay/Alum_Disp/json/csvjson.json');
+    
+    // now we have the json file and can parse it
+    const json = await response.text();
+    const jsonConverted = JSON.parse(json);
+
+    returnarr = [];
+   // we pull out the json objects in the json array when they dont have keys
+    for (var i = 0; i < jsonConverted.length; i++) {
+        var jsonstring = JSON.stringify(jsonConverted[i]["Q11"]);
+        // check if the string is an email
+        if (jsonstring.includes("@")) {
+            // add to the return array
+            returnarr.push(jsonConverted[i]);
+        }
+    }
+    console.log(returnarr);
+
+    // now that we have the array filtered we can randomize it and display it
+    var rand1 = 0
+    var rand2 = 0
+    var rand3 = 0
+    while(true){
+        rand1 = Math.floor(Math.random() * returnarr.length);
+        rand2 = Math.floor(Math.random() * returnarr.length);
+        rand3 = Math.floor(Math.random() * returnarr.length);
+        if (rand1 != rand2 && rand2 != rand3 && rand1 != rand3) {
+            break;
+        }
+    }
+    document.getElementById("Business1OwnerName").innerHTML = returnarr[rand1]["Q8"];
+    document.getElementById("Business1Name").innerHTML = returnarr[rand1]["Q1"];
+    document.getElementById("DescBusiness1").innerHTML = returnarr[rand1]["Q2"];
+    document.getElementById("business1web").href = returnarr[rand1]["Q3"];
+
+    document.getElementById("Business2OwnerName").innerHTML = returnarr[rand2]["Q8"];
+    document.getElementById("Business2Name").innerHTML = returnarr[rand2]["Q1"];
+    document.getElementById("DescBusiness2").innerHTML = returnarr[rand2]["Q2"];
+    document.getElementById("business2web").href = returnarr[rand2]["Q3"];
+
+    document.getElementById("Business3OwnerName").innerHTML = returnarr[rand3]["Q8"];
+    document.getElementById("Business3Name").innerHTML = returnarr[rand3]["Q1"];
+    document.getElementById("DescBusiness3").innerHTML = returnarr[rand3]["Q2"];
+    document.getElementById("business3web").href = returnarr[rand3]["Q3"];
+}
+
 
 //This function is used to display the information of the alumni from the json file and populate each 
 //of the four pages with the information.
@@ -91,3 +138,4 @@ function display() {
     xmlhttp.send();
 }
 
+randomizeV2();
