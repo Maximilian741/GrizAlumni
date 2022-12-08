@@ -10,6 +10,36 @@ Import Google Fonts
 GENERAL
 --------------------*/
 
+/* Styling for the button that links the businesses to their website.  The text is titled 'website'*/
+.btn {
+    font-family: "Raleway", Sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    background-color: #584f4f;
+    border-color: #f8f8f8;
+    border-radius: 0;
+    padding: 10px 20px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.btn:hover, .btn:focus, .btn:active, .btn.active {
+    color: #800000;
+    background-color: #232323;
+    border-color: #232323;
+}
+
+
+
+
+
+
 body {
 	margin: 0px;
 	font-family: "Raleway", Sans-serif;
