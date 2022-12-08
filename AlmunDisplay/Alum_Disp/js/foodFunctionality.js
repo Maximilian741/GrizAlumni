@@ -89,41 +89,60 @@ async function randomizeV2() {
         poplink.setAttribute("data-target", "#myModal");
         poplink.innerHTML = "More Info";
         p.appendChild(poplink);
-        
+
         // create a modal
-        var modal = document.createElement("div");
-        modal.className = "modal fade";
-        modal.id = "myModal";
-        modal.setAttribute("role", "dialog");
-        modal.setAttribute("aria-labelledby", "myModalLabel");
-        modal.setAttribute("aria-hidden", "true");
-        modal.setAttribute("tabindex", "-1");
+        //This will display all the information when the poplink is clicked.  This information needs to be pulled from the json file and be 
+        //specifc to each business poplink that is clicked.
+        //It muct include all of the information that the business entered into the form that is valid.
+         for(var j = 0; j < returnarr2.length; j++){
+            var modal = document.createElement("div");
+            modal.className = "modal fade";
+            modal.id = "myModal";
+            modal.setAttribute("role", "dialog");
+            modal.setAttribute("aria-labelledby", "myModalLabel");
+            modal.setAttribute("aria-hidden", "false");
 
-        // create a modal dialog
-        var modalDialog = document.createElement("div");
-        modalDialog.className = "modal-dialog";
+            //increase size of text
+            modal.style = "font-size: 1.5em;";
+            //change the cakground color
+            modal.style = "background-color: #000000;";
+            //change the color of the text to black
+            modal.style = "color: #000000;";
+           
 
-        // create a modal content
-        var modalContent = document.createElement("div");
-        modalContent.className = "modal-content";
+        
 
-        // create a modal header
-        var modalHeader = document.createElement("div");
-        modalHeader.className = "modal-header";
 
-        // create a modal body
-        var modalBody = document.createElement("div");
-        modalBody.className = "modal-body";
+            // create a modal dialog pull the information from the json array
+            var modalDialog = document.createElement("div");
+            modalDialog.className = "modal-dialog";
+            modalDialog.innerHTML = returnarr2[j]["Q1"];
 
-        // create a modal footer
-        var modalFooter = document.createElement("div");
-        modalFooter.className = "modal-footer";
+            // create a modal content
+            var modalContent = document.createElement("div");
+            modalContent.className = "modal-content";
+            modalContent.innerHTML = returnarr2[j]["Q2"];
 
-        // create a close button
-        var closebutton = document.createElement("button");
-        closebutton.className = "btn btn-default";
-        closebutton.setAttribute("data-dismiss", "modal");
-        closebutton.innerHTML = "Close";
+            // create a modal header
+            var modalHeader = document.createElement("div");
+            modalHeader.className = "modal-header";
+            modalHeader.innerHTML = returnarr2[j]["Q3"];
+
+            // create a modal body
+            var modalBody = document.createElement("div");
+            modalBody.className = "modal-body";
+            modalBody.innerHTML = returnarr2[j]["Q4"];
+
+            // create a modal footer
+            var modalFooter = document.createElement("div");
+            modalFooter.className = "modal-footer";
+            modalFooter.innerHTML = returnarr2[j]["Q5"];
+        }
+
+
+
+        
+        
 
         // create an a
         var a = document.createElement("a");
@@ -135,19 +154,23 @@ async function randomizeV2() {
 
         teamtext.appendChild(h3);
         teamtext.appendChild(teamposition);
-        //teamtext.appendChild(p);
+        teamtext.appendChild(p);
         teamtext.appendChild(a);
 
         teamitem.appendChild(teamimage);
         teamitem.appendChild(teamtext);
-        teamitem.appendChild(p);
+
+        //This is for the popup content
+        // teamitem.appendChild(p);
+
         p.appendChild(modal);
         modal.appendChild(modalDialog);
         modalDialog.appendChild(modalContent);
         modalContent.appendChild(modalHeader);
         modalContent.appendChild(modalBody);
         modalContent.appendChild(modalFooter);
-        modalFooter.appendChild(closebutton);
+
+
 
         
      
