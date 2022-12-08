@@ -67,7 +67,7 @@ function randomize() {
 async function randomizeV2() {
     // this is a second attempt at the randomize function
     const response = await fetch('https://raw.githubusercontent.com/Rileyj-m/TESTALUM.io/master/AlmunDisplay/Alum_Disp/json/csvjson.json');
-    
+
     // now we have the json file and can parse it
     const json = await response.text();
     const jsonConverted = JSON.parse(json);
@@ -93,22 +93,34 @@ async function randomizeV2() {
         rand2 = Math.floor(Math.random() * returnarr.length);
         rand3 = Math.floor(Math.random() * returnarr.length);
         if (rand1 != rand2 && rand2 != rand3 && rand1 != rand3) {
-            break;
+            if (returnarr[rand1]["Q7"] == ""){
+                continue;
+            }
+            else if (returnarr[rand2]["Q7"] == ""){
+                continue;
+            }
+            else if (returnarr[rand3]["Q7"] == ""){
+                continue;
+            }
+            else{
+                break;
+            }
         }
     }
+
     document.getElementById("Business1OwnerName").innerHTML = returnarr[rand1]["Q8"];
     document.getElementById("Business1Name").innerHTML = returnarr[rand1]["Q1"];
-    document.getElementById("DescBusiness1").innerHTML = returnarr[rand1]["Q2"];
+    document.getElementById("DescBusiness1").innerHTML = "Year Established: " + returnarr[rand1]["Q7"];
     document.getElementById("business1web").href = returnarr[rand1]["Q3"];
 
     document.getElementById("Business2OwnerName").innerHTML = returnarr[rand2]["Q8"];
     document.getElementById("Business2Name").innerHTML = returnarr[rand2]["Q1"];
-    document.getElementById("DescBusiness2").innerHTML = returnarr[rand2]["Q2"];
+    document.getElementById("DescBusiness2").innerHTML = "Year Established: " + returnarr[rand2]["Q7"];
     document.getElementById("business2web").href = returnarr[rand2]["Q3"];
 
     document.getElementById("Business3OwnerName").innerHTML = returnarr[rand3]["Q8"];
     document.getElementById("Business3Name").innerHTML = returnarr[rand3]["Q1"];
-    document.getElementById("DescBusiness3").innerHTML = returnarr[rand3]["Q2"];
+    document.getElementById("DescBusiness3").innerHTML = "Year Established: " + returnarr[rand3]["Q7"];
     document.getElementById("business3web").href = returnarr[rand3]["Q3"];
 }
 
