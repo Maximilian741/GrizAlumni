@@ -55,9 +55,14 @@ async function randomizeV2() {
         teamposition.innerHTML = returnarr2[i]["Q1"];
 
         // create a p
+        var poplink = document.createElement("a");
         var p = document.createElement("p");
-        p.innerHTML = "WE NEED A POPUP LINK HERE";
-
+        poplink.href = "#";
+        poplink.setAttribute("data-toggle", "modal");
+        poplink.setAttribute("data-target", "#myModal" + i);
+        poplink.innerHTML = "More Info";
+        p.appendChild(poplink);
+        setpopup(p,i,returnarr2);
         // create an a
         var a = document.createElement("a");
         a.className = "btn btn-primary";
@@ -80,3 +85,103 @@ async function randomizeV2() {
     }
 }
 randomizeV2();
+
+function setpopup(p,j,returnarr2) {
+    var modal = document.createElement("div");
+            modal.className = "modal fade";
+            modal.id = "myModal" + j;
+            modal.setAttribute("role", "dialog");
+            modal.setAttribute("aria-labelledby", "myModalLabel");
+            modal.setAttribute("aria-hidden", "false");
+
+            //increase size of text
+            modal.style = "font-size: 1.5em;";
+            //change the cakground color
+            modal.style = "background-color: #000000;";
+            //change the color of the text to black
+            modal.style = "color: #000000;";
+           
+
+        
+
+
+            // create a modal dialog pull the information from the json array
+            var modalDialog = document.createElement("div");
+            modalDialog.className = "modal-dialog";
+            modalDialog.id = "modalDialog" + j;
+            modalDialog.innerHTML = returnarr2[j]["Q1"];
+            modalDialog.style = "background-color: #ffffff;"
+            //Increase the size of the text"
+
+            // create a modal content
+            var modalContent = document.createElement("div");
+            modalContent.className = "modal-content";
+            modalContent.id = "modalcontent" + j;
+            modalContent.innerHTML = returnarr2[j]["Q2"];
+
+            // create a modal header
+            var modalHeader = document.createElement("div");
+            modalHeader.className = "modal-header";
+            modalHeader.id = "modalheader" + j;
+            modalHeader.innerHTML = returnarr2[j]["Q3"];
+
+            // create a modal body
+            var modalBody = document.createElement("div");
+            modalBody.className = "modal-body";
+            modalBody.id = "modalbody" + j;
+            //Change return array to phone number format.
+            modalBody.innerHTML = returnarr2[j]["Q4"];
+
+            // create a modal footer
+            var modalFooter = document.createElement("div");
+            modalFooter.className = "modal-footer";
+            modalFooter.id = "modalfooter" + j;
+            modalFooter.innerHTML = returnarr2[j]["Q5"];
+          
+        
+
+            //create footer for twitter link
+            var twitter = document.createElement("div");
+            twitter.className = "modal-footer";
+            if (returnarr2[j]["Q6_1"] == "") {
+                twitter.innerHTML = "No Twitter";
+            }
+            else
+            {
+            twitter.innerHTML = returnarr2[j]["Q6_1"];
+            }
+
+            //Facebook link
+            var facebook = document.createElement("div");
+            facebook.className = "modal-footer";
+            facebook.innerHTML = returnarr2[j]["Q6_2"];
+            if (returnarr2[j]["Q6_2"] == "") {
+                facebook.innerHTML = "No Facebook";
+            }
+            else
+            {
+                facebook.innerHTML = returnarr2[j]["Q6_2"];
+            }
+
+            //Instagram link
+            var instagram = document.createElement("div");
+            instagram.className = "modal-footer";
+            if (returnarr2[j]["Q6_3"] == "") {
+                instagram.innerHTML = "No Instagram";
+            }
+            else
+            {
+                instagram.innerHTML = returnarr2[j]["Q6_3"];
+            }
+
+
+            p.appendChild(modal);
+            modal.appendChild(modalDialog);
+            modalDialog.appendChild(modalContent);
+            modalContent.appendChild(modalHeader);
+            modalContent.appendChild(modalBody);
+            modalContent.appendChild(modalFooter);
+            modalContent.appendChild(twitter);
+            modalContent.appendChild(facebook);
+            modalContent.appendChild(instagram);
+}
