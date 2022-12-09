@@ -105,40 +105,38 @@ function setpopup(p,j,returnarr2) {
         
 
 
-            // create a modal dialog pull the information from the json array
-            var modalDialog = document.createElement("div");
-            modalDialog.className = "modal-dialog";
-            modalDialog.id = "modalDialog" + j;
-            modalDialog.innerHTML = returnarr2[j]["Q1"];
-            modalDialog.style = "background-color: #ffffff;"
-            //Increase the size of the text"
+           // create a modal dialog pull the information from the json array
+           var modalDialog = document.createElement("div");
+           modalDialog.className = "modal-dialog";
+           modalDialog.id = "modalDialog" + j;
+           modalDialog.innerHTML = returnarr2[j]["Q1"];
+           modalDialog.style = "background-color: #ffffff;"
+           //Increase the size of the text"
 
-            // create a modal content
-            var modalContent = document.createElement("div");
-            modalContent.className = "modal-content";
-            modalContent.id = "modalcontent" + j;
-            modalContent.innerHTML = returnarr2[j]["Q2"];
+           // create a modal content
+           var modalContent = document.createElement("div");
+           modalContent.className = "modal-content";
+           modalContent.id = "modalcontent" + j;
+           modalContent.innerHTML = returnarr2[j]["Q2"];
 
-            // create a modal header
-            var modalHeader = document.createElement("div");
-            modalHeader.className = "modal-header";
-            modalHeader.id = "modalheader" + j;
-            modalHeader.innerHTML = returnarr2[j]["Q3"];
+           // create a modal header
+           var modalHeader = document.createElement("div");
+           modalHeader.className = "modal-header";
+           modalHeader.id = "modalheader" + j;
+           modalHeader.innerHTML = returnarr2[j]["Q3"];
 
-            // create a modal body
-            var modalBody = document.createElement("div");
-            modalBody.className = "modal-body";
-            modalBody.id = "modalbody" + j;
-            //Change return array to phone number format.
-            modalBody.innerHTML = returnarr2[j]["Q4"];
+           // create a modal body
+           var modalBody = document.createElement("div");
+           modalBody.className = "modal-body";
+           modalBody.id = "modalbody" + j;
+           //Change return array to phone number format.
+           modalBody.innerHTML = returnarr2[j]["Q4"];
 
-            // create a modal footer
-            var modalFooter = document.createElement("div");
-            modalFooter.className = "modal-footer";
-            modalFooter.id = "modalfooter" + j;
-            modalFooter.innerHTML = returnarr2[j]["Q5"];
-          
-        
+           // create a modal footer
+           var modalFooter = document.createElement("div");
+           modalFooter.className = "modal-footer" + j;
+           modalFooter.id = "modalfooter" + j;
+           modalFooter.innerHTML = returnarr2[j]["Q5"];
 
             //create footer for twitter link
             var twitter = document.createElement("div");

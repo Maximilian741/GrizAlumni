@@ -172,7 +172,7 @@ function setpopup(p,j,returnarr2) {
 
             // create a modal footer
             var modalFooter = document.createElement("div");
-            modalFooter.className = "modal-footer";
+            modalFooter.className = "modal-footer" + j;
             modalFooter.id = "modalfooter" + j;
             modalFooter.innerHTML = returnarr2[j]["Q5"];
           
