@@ -64,7 +64,23 @@ async function randomizeV2() {
         p.appendChild(poplink);
         setpopup(p,i,returnarr2);
 
-        // create an a
+        // create an a for the website
+        //if the website3 is empty then dont create the button
+        //if the website link doenst work then dont create the button.  This is a problem with the json file and how people are filling out the survey.
+        //We need to make sure that the website is a valid website, do this by checking if the website has a .com or .org or .net.  If it isn't then dont create the button.
+        if (returnarr2[i]["Q3"] == "" || !returnarr2[i]["Q3"].includes(".") || !returnarr2[i]["Q3"].includes("http")) {
+        teamtext.appendChild(h3);
+        teamtext.appendChild(teamposition);
+        teamtext.appendChild(p);
+        //teamtext.appendChild(a);
+
+        teamitem.appendChild(teamimage);
+        teamitem.appendChild(teamtext);
+
+        div.appendChild(teamitem);
+
+        container.appendChild(div);
+        } else {
         var a = document.createElement("a");
         a.className = "btn btn-primary";
         a.innerHTML = "Website";
@@ -83,6 +99,7 @@ async function randomizeV2() {
         div.appendChild(teamitem);
 
         container.appendChild(div);
+        }
     }
 }
 randomizeV2();
