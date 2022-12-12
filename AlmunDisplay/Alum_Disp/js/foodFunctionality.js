@@ -180,7 +180,7 @@ function setpopup(p,j,returnarr2) {
 
             //create footer for twitter link
             var twitter = document.createElement("div");
-            twitter.className = "modal-footer";
+            twitter.className = "modal-footer" + j + "t";
             if (returnarr2[j]["Q6_1"] == "") {
                 twitter.innerHTML = "No Twitter";
             }
@@ -191,19 +191,21 @@ function setpopup(p,j,returnarr2) {
 
             //Facebook link
             var facebook = document.createElement("div");
-            facebook.className = "modal-footer";
+            facebook.className = "modal-footer" + j + "f";
             facebook.innerHTML = returnarr2[j]["Q6_2"];
             if (returnarr2[j]["Q6_2"] == "") {
                 facebook.innerHTML = "No Facebook";
             }
             else
             {
-                facebook.innerHTML = returnarr2[j]["Q6_2"];
+                
+                facebook.innerHTML = "Facebook: " + returnarr2[j]["Q6_2"];
+                
             }
 
             //Instagram link
             var instagram = document.createElement("div");
-            instagram.className = "modal-footer";
+            instagram.className = "modal-footer" + j + "i";
             if (returnarr2[j]["Q6_3"] == "") {
                 instagram.innerHTML = "No Instagram";
             }
@@ -211,16 +213,6 @@ function setpopup(p,j,returnarr2) {
             {
                 instagram.innerHTML = returnarr2[j]["Q6_3"];
             }
-
-
-            
-
-            
-
-
-
-
-
 
 
             p.appendChild(modal);
