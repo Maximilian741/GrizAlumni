@@ -93,13 +93,13 @@ async function randomizeV2() {
         rand2 = Math.floor(Math.random() * returnarr.length);
         rand3 = Math.floor(Math.random() * returnarr.length);
         if (rand1 != rand2 && rand2 != rand3 && rand1 != rand3) {
-            if (returnarr[rand1]["Q7"] == ""&& returnarr[rand1]["Q3"].includes("https") == false && returnarr[rand1]["Q3"] != ""){
+            if (returnarr[rand1]["Q7"] == ""|| returnarr[rand1]["Q3"].includes("https") == false || returnarr[rand1]["Q3"] == "" || returnarr[rand1]["Q3"].includes(".")== false){
                 continue;
             }
-            else if (returnarr[rand2]["Q7"] == "" &&returnarr[rand2]["Q3"].includes("https") == false && returnarr[rand2]["Q3"] != ""){
+            if (returnarr[rand2]["Q7"] == "" || returnarr[rand2]["Q3"].includes("https") == false || returnarr[rand2]["Q3"] == "" || returnarr[rand2]["Q3"].includes(".")== false){
                 continue;
             }
-            else if (returnarr[rand3]["Q7"] == "" && returnarr[rand3]["Q3"].includes("https") == false && returnarr[rand3]["Q3"] != ""){
+            if (returnarr[rand3]["Q7"] == "" || returnarr[rand3]["Q3"].includes("https") == false || returnarr[rand3]["Q3"] == "" || returnarr[rand3]["Q3"].includes(".")== false){
                 continue;
             }
             else{

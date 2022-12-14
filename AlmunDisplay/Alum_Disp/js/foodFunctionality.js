@@ -1,31 +1,11 @@
-{/* <div class="row" id="FoodBusiness">
-                        <!-- SPONSORED ACTOR 1 -->
-                        <div class="col-md-4">
-                            <div class="team-item">
-                                <div class="team-image">
-                                    <!--<img src="images/demo/author-2.jpg" class="img-responsive" alt="author">-->
-                                </div>
-                                <div class="team-text">
-                                    <h3>Robert Eskridge</h3>
-                                    <div class="team-position"> Eskridge Enterprises LLC.</div>
-                                    <p>
-                                        We are a service disabled, veteran owned small business that specializes in
-                                        contract staffing
-                                        of medical providers for government contracts nationwide.
-
-                                    </p>
-                                    <!--Pull in the website information from the Json file in the same directory-->
-                                    <a href="https://www.eskridgeenterprises.com/" class="btn btn-primary">Website</a>
-                                    
-                                </div>
-                            </div>
-                        </div> */}
-
-
-
 
 async function randomizeV2() {
     // this is a second attempt at the randomize function
+    //This is the path to the json file from the Github repo we created for the alumni association.
+    //This was the quickest fix I could think of to get the json file to work.
+    //Now LeAnn will only need to go into the Github repo and update the json file when she wants to update the alumni information.
+    //It is very important that the json file LeAnn enters into the json folder is named csvjson.json
+    //If it is not named csvjson.json then the path to the json file will need to be changed in this function.
     const response = await fetch('https://raw.githubusercontent.com/Rileyj-m/TESTALUM.io/master/AlmunDisplay/Alum_Disp/json/csvjson.json');
 
     // now we have the json file and can parse it
@@ -102,6 +82,7 @@ async function randomizeV2() {
             //teamtext.appendChild(a);
     
             teamitem.appendChild(teamimage);
+            teamitem.appendChild(teamtext);
             teamitem.appendChild(teamtext);
     
             div.appendChild(teamitem);
