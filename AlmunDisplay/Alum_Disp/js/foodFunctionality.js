@@ -95,8 +95,8 @@ async function randomizeV2() {
             container.appendChild(div);
             } else {
             var a = document.createElement("a");
-            a.className = "btn btn-primary";
-            a.innerHTML = "Website";
+           // a.className = "btn btn-primary";
+            //a.innerHTML = "Website";
             a.href = returnarr2[i]["Q3"];
     
             // append the elements

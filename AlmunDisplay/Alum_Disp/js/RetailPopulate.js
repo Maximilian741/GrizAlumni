@@ -76,6 +76,7 @@ async function randomizeV2() {
         //if the website link doenst work then dont create the button.  This is a problem with the json file and how people are filling out the survey.
         //We need to make sure that the website is a valid website, do this by checking if the website has a .com or .org or .net.  If it isn't then dont create the button.
         if (returnarr2[i]["Q3"] == "" || !returnarr2[i]["Q3"].includes(".") || !returnarr2[i]["Q3"].includes("http")) {
+           // var r = document.createElement("a");
             teamtext.appendChild(h3);
             teamtext.appendChild(teamposition);
             teamtext.appendChild(p);
@@ -88,10 +89,10 @@ async function randomizeV2() {
     
             container.appendChild(div);
             } else {
-            var a = document.createElement("a");
-            a.className = "btn btn-primary";
-            a.innerHTML = "Website";
-            a.href = returnarr2[i]["Q3"];
+             var a = document.createElement("a");
+           //  a.className = "btn btn-primary";
+           //  a.innerHTML = "Website";
+             a.href = returnarr2[i]["Q3"];
     
             // append the elements
     
