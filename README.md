@@ -31,10 +31,10 @@ We decided to go with '.com' as this was offered through DreamHost.
 
 index.html
 This is where the main content of the webpage is displayed.
+We will then have 4 subsections of the site.
+
 
 style.css
 This is where the styling for the content in the index.html file is performed.
+We will then have styling for each of the sections as well.
 
-csvToJson
-I have been using this to convert the csv generated from the qualtrics survey into the json.
-https://csvjson.com/csv2json
