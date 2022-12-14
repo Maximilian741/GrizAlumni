@@ -66,7 +66,7 @@ function randomize() {
 
 async function randomizeV2() {
     // this is a second attempt at the randomize function
-    const response = await fetch('https://raw.githubusercontent.com/Rileyj-m/TESTALUM.io/master/AlmunDisplay/Alum_Disp/json/csvjson.json');
+    const response = await fetch('https://raw.githubusercontent.com/UmtAlum1901/GrizAlum/main/csvjson.json');
 
     // now we have the json file and can parse it
     const json = await response.text();

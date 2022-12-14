@@ -6,7 +6,7 @@ async function randomizeV2() {
     //Now LeAnn will only need to go into the Github repo and update the json file when she wants to update the alumni information.
     //It is very important that the json file LeAnn enters into the json folder is named csvjson.json
     //If it is not named csvjson.json then the path to the json file will need to be changed in this function.
-    const response = await fetch('https://raw.githubusercontent.com/Rileyj-m/TESTALUM.io/master/AlmunDisplay/Alum_Disp/json/csvjson.json');
+    const response = await fetch('https://raw.githubusercontent.com/UmtAlum1901/GrizAlum/main/csvjson.json');
 
     // now we have the json file and can parse it
     const json = await response.text();
