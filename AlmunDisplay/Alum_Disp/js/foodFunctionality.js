@@ -105,6 +105,10 @@ async function randomizeV2() {
             teamitem.appendChild(teamtext);
     
             div.appendChild(teamitem);
+            //need to append something so that the div mathces in size when there is no website
+            var g = document.createElement("g");
+            div.appendChild(g);
+            
     
             container.appendChild(div);
             } else {

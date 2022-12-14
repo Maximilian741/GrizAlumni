@@ -83,8 +83,12 @@ async function randomizeV2() {
     
             teamitem.appendChild(teamimage);
             teamitem.appendChild(teamtext);
+            teamitem.appendChild(modal);
     
             div.appendChild(teamitem);
+             //need to append something so that the div mathces in size when there is no website
+             //create a div that is the same size as the button
+             
     
             container.appendChild(div);
             } else {
