@@ -257,7 +257,8 @@
 	
 				<div class="row">
 					<div class="col-lg-12 text-center">
-						<form onsubmit="sendEmail(); reset(); return false;" >
+						<!--On the submit, I want the sendEmail function to get called.-->
+						<form onsubmit="sendEmail(); reset(); return true;" >
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
@@ -284,7 +285,7 @@
 							<div class="row">
 								<div class="col-lg-12 text-center">
 									<div id="success"></div>
-									<button type="submit" class="btn">Send Message</button>
+									<button type="submit" class="btn" onsubmit="sendEmail(); reset(); return true;" >Send Message</button>
 								</div>
 							</div>
 						</form>

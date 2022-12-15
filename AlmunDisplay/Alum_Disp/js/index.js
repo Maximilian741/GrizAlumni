@@ -16,13 +16,16 @@ function sendEmail() {
     var body = "Name: " + name + "From: " + email + "Message: " + message;
     
     email.send({
-            SecureToken : "6268cee6-cdd6-488e-bbfa-f07b9661e4b9",
+            Host: "smtp.gmail.com",
+            Username : "GrizAlumRock@outlook.com",
+            Password : "MTalumni1901!",
+            //SecureToken : "6268cee6-cdd6-488e-bbfa-f07b9661e4b9",
             To: 'GrizAlumniRock@outlook.com',
             From: email,
             Subject: "New Contact Form Submission",
             Body: body
         }).then(
-            message => alert(message)
+            (message) => alert("Message sent successfully.")
         );
 }
 
